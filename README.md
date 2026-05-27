@@ -75,4 +75,3 @@ Verifique:
 - Para preservar diagramas e layout, utilize sempre a pasta completa do projeto
 - Evite renomear arquivos internos do projeto
 - O projeto foi feito na versão 5.4.01 do Modelio
-```
