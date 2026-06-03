@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+actor "Aluno" as Aluno
+
+usecase "Criar Conta" as UC1
+usecase "Acessar Conta" as UC2
+usecase "Buscar Perfil" as UC3
+usecase "Agendar Treino" as UC4
+usecase "Acessar Perfil Próprio" as UC5
+usecase "Editar Dados" as UC6
+
+Aluno --> UC1
+Aluno --> UC2
+Aluno --> UC3
+Aluno --> UC4
+Aluno --> UC5
+Aluno --> UC6
+
+UC2 ..> UC1 : <<extend>>
+
+UC3 ..> UC2 : <<include>>
+UC4 ..> UC3 : <<include>>
+UC5 ..> UC2 : <<include>>
+UC6 ..> UC5 : <<include>>
+
+@enduml

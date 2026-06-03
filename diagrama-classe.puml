@@ -1,0 +1,47 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Usuario {
+    + dadosPessoais : ...
+    + acessarConta()
+    + criarConta()
+}
+
+class Aluno
+
+class Personal {
+    + dadosPersonais : ...
+}
+
+class Aplicativo {
+    + buscarPersonal : ...
+    + acessarPerfil : <...>
+}
+
+class Perfil {
+    + dadosUsuarios : ...
+    + editarDados()
+}
+
+class PerfilAluno
+
+class PerfilPersonal {
+    + dadosProfissionais : string
+    + agenda : string
+    + agendarTreino()
+}
+
+' Herança
+Usuario <|-- Aluno
+Usuario <|-- Personal
+
+Perfil <|-- PerfilAluno
+Perfil <|-- PerfilPersonal
+
+' Associações
+Usuario "1" --> "1..2" Perfil : perfil
+
+Aplicativo "1" *-- "1" Perfil : perfil
+
+@enduml
