@@ -1,0 +1,34 @@
+@startuml
+
+node "Smartphone\n(Android / iOS)" {
+
+    artifact "Aplicativo Mobile\nReact Native"
+}
+
+node "Servidor Backend\n(Node.js)" {
+
+    artifact "Serviço de Autenticação"
+
+    artifact "Serviço de Usuários"
+
+    artifact "Serviço de Perfis"
+
+    artifact "Serviço de Agendamento"
+}
+
+database "MongoDB" {
+
+    artifact "Base de Dados"
+}
+
+"Aplicativo Mobile\nReact Native" --> "Serviço de Autenticação" : HTTPS/REST
+"Aplicativo Mobile\nReact Native" --> "Serviço de Usuários" : HTTPS/REST
+"Aplicativo Mobile\nReact Native" --> "Serviço de Perfis" : HTTPS/REST
+"Aplicativo Mobile\nReact Native" --> "Serviço de Agendamento" : HTTPS/REST
+
+"Serviço de Autenticação" --> "Base de Dados"
+"Serviço de Usuários" --> "Base de Dados"
+"Serviço de Perfis" --> "Base de Dados"
+"Serviço de Agendamento" --> "Base de Dados"
+
+@enduml

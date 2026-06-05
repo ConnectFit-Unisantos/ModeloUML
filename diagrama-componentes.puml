@@ -1,0 +1,34 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Frontend" {
+    [Aplicativo Mobile\n(React Native)]
+}
+
+package "Backend" {
+
+    [Serviço de Autenticação]
+
+    [Serviço de Usuários]
+
+    [Serviço de Perfis]
+
+    [Serviço de Agendamento]
+}
+
+database "MongoDB" as DB
+
+[Aplicativo Mobile\n(React Native)] --> [Serviço de Autenticação]
+[Aplicativo Mobile\n(React Native)] --> [Serviço de Usuários]
+[Aplicativo Mobile\n(React Native)] --> [Serviço de Perfis]
+[Aplicativo Mobile\n(React Native)] --> [Serviço de Agendamento]
+
+[Serviço de Autenticação] --> DB
+[Serviço de Usuários] --> DB
+[Serviço de Perfis] --> DB
+[Serviço de Agendamento] --> DB
+
+[Serviço de Perfis] --> [Serviço de Usuários]
+[Serviço de Agendamento] --> [Serviço de Perfis]
+
+@enduml
